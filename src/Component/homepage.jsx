@@ -9,10 +9,10 @@ const Homepage = () => {
   return (
     <>
       <Header />
-      <section class="hero">
+      <section className="hero">
         <h2>Welcome to Our Store</h2>
         <p>Find the best products at unbeatable prices.</p>
-        <a href="#" class="btn">
+        <a href="#" className="btn">
           Shop Now
         </a>
       </section>
