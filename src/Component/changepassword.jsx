@@ -7,15 +7,15 @@ const Change = ()=>{
         <p>Enter a code sent to your email</p>
 
         <form action="">
-          <div className="input-group">
+          <div className="change-group">
             <label for="code">Verification code</label>
             <input type="text" id="text" name="text" />
           </div>
-          <div className="input-group">
+          <div className="change-group">
             <label for="password">New Password</label>
             <input type="password" id="password1" name="password" />
           </div>
-          <div className="input-group">
+          <div className="change-group">
             <label for="password">Confirm Password</label>
             <input type="password" id="password2" name="password" />
           </div>

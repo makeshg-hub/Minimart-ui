@@ -1,3 +1,6 @@
+import React from 'react'
+import { Link } from 'react-router-dom'
+import './login.css'
 const Login= ()=>{
     return(
         <div className="login-container">
@@ -14,8 +17,8 @@ const Login= ()=>{
                 </div>
                 <button type="submit">Login</button>
                 <div className="links">
-                    <a href="file:///C:/Users/admin/Desktop/Mini%20Mart/forgot.html">Forgot Password?</a>
-                    <a href="file:///C:/Users/admin/Desktop/Mini%20Mart/register.html">Create an Account</a>
+                    <Link to= "/forgotpage">Forgot Password?</Link>
+                    <Link to ="/register">Create an Account</Link>
                 </div>
             </form>
         </div>

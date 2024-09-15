@@ -1,3 +1,6 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+import './register.css';
 const Register = () =>{
     return(
         <div className="account-container">
@@ -22,7 +25,7 @@ const Register = () =>{
                 </div>
                 <button type="submit">Create Account</button>
                 <div className="links">
-                    <a href="#">Already have an account? Login</a>
+                    <Link to="/login">Already have an account? Login</Link>
                 </div>
             </form>
         </div>

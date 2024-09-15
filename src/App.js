@@ -11,17 +11,18 @@ import Change from './Component/changepassword';
 function App() {
   return (
     
-    <>
+    <> <div style={{height:"100vh"}}>
    <BrowserRouter>
        <Routes>
-
-          <Route exact path="/" element={<Homepage/>} />
-          <Route path="/forgot" element={<Forgot/>} />
+          <Route index element={<Homepage/>}/>
+          <Route exact path="/homepage" element={<Homepage/>} />
+          <Route path="/forgotpage" element={<Forgot/>} />
           <Route path="/login" element={<Login/>} />
           <Route path="/register" element={<Register/>} />
           <Route path="/changepassword" element={<Change/>} /> 
        </Routes>
     </BrowserRouter>
+    </div>
     </>
   
 );

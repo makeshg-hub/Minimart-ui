@@ -1,10 +1,14 @@
-const Header=()=>{
+import React from "react"
+import { useNavigate } from "react-router-dom"
+function Header(){
+    const navigate=useNavigate()
     return(
         <header>
         <div className="logo">
             <h1>Mini Mart</h1>
-           <button type="menu">Login</button>
+           <button onClick={()=>navigate('/login')}>Login</button>
         </div>
+        
         <nav>
             <ul>
                 <li><a href="#">Home</a></li>
