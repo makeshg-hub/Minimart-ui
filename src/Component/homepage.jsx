@@ -9,7 +9,11 @@ const Homepage = () => {
   return (
     <>
       <Header />
+
       <section className="hero">
+        <div className="search">
+          <input type="search"  placeholder="Search"/>
+        </div>
         <h2>Welcome to Our Store</h2>
         <p>Find the best products at unbeatable prices.</p>
         <a href="#" className="btn">
@@ -23,7 +27,7 @@ const Homepage = () => {
           <div className="product-card">
             <img src={product1} alt="Product 1" />
             <h3>Product 1</h3>
-            <p>$19.99</p>
+            <p>₹ 159</p>
             <a href="#" className="btn">
               Add to Cart
             </a>
@@ -31,7 +35,7 @@ const Homepage = () => {
           <div className="product-card">
             <img src={product2} alt="Product 2" />
             <h3>Product 2</h3>
-            <p>$29.99</p>
+            <p>₹ 200</p>
             <a href="#" className="btn">
               Add to Cart
             </a>
@@ -39,7 +43,7 @@ const Homepage = () => {
           <div className="product-card">
             <img src={product3} alt="Product 3" />
             <h3>Product 3</h3>
-            <p>$39.99</p>
+            <p>₹ 30</p>
             <a href="#" className="btn">
               Add to Cart
             </a>
@@ -47,7 +51,7 @@ const Homepage = () => {
           <div className="product-card">
             <img src={product4} alt="Product 4" />
             <h3>Product 4</h3>
-            <p>$49.99</p>
+            <p>₹ 190</p>
             <a href="#" className="btn">
               Add to Cart
             </a>
