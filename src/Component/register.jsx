@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 import './register.css';
 import { Button, TextField } from '@mui/material';
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+
+
 const Register = () =>{
     const[user,setUser]=useState({
         firstName:"",
@@ -51,7 +54,7 @@ const Register = () =>{
     const handleSubmit=async (e)=>{
         e.preventDefault();
         if(user.password!==user.confirmPassword){
-            alert("Passwords Do Not Match")
+            toast.error("Passwords Do Not Match")
             return;
         }
         const data={

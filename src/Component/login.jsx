@@ -1,13 +1,19 @@
-import React, { useState } from "react";
+import React, { useState,  } from "react";
 import { Link } from "react-router-dom";
 import "./login.css";
 import { Button, TextField } from "@mui/material";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { toast } from 'react-toastify';
+
+
+
 const Login = () => {
   const [user, setUser] =useState( {
     email: "",
     password: "",
   });
+  const navigate = useNavigate();
 
   const handleChangeEmail = (e) => {
     setUser((prevVal) => ({
@@ -25,7 +31,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (user.email === "" || user.password === "") {
-      alert("Please fill all the field");
+      toast.warning("Please fill all the field");
       return;
     }
     const data = {
@@ -37,10 +43,11 @@ const Login = () => {
         "http://localhost:8083/api/patient/login",
         data
       );
-      alert("Login Successful");
+      toast.success("Login Successful");
+      navigate("/")
       console.log(respone.data);
     } catch (err) {
-      alert(
+      toast.error(
         "An error occured" +
           (err.respone ? err.respone.data.message : err.message)
       );
