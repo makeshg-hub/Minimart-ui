@@ -35,7 +35,7 @@ const Change = ()=>{
     if(user.password!==user.confirmPassword){
       alert("Password Do Not Match")
       return
-    }else if(user.password=="" || user.token==""|| user.confirmPassword==""){
+    }else if(user.password=="" || user.token ==""|| user.confirmPassword==""){
       toast.error("Please Fill all the field")
       return
     }
