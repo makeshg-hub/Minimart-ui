@@ -3,10 +3,15 @@ import { Link } from 'react-router-dom';
 import './forgot.css';
 import { Button, TextField } from '@mui/material';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+
 const Forgot = ()=>{
     const[user,setUser]=useState({
         email:"",
     })
+    const nav=useNavigate()
+    
     const handleChangeEmail=(e)=>{
         setUser((prevVal)=>({
             ...prevVal,
@@ -24,11 +29,12 @@ const Forgot = ()=>{
         }
         try{
             const response=await axios.post("http://localhost:8083/api/patient/forgot-password",data)
-            alert("OTP sent to email id")
+            toast.success("OTP sent to email id")
+            nav("/changepassword")
             console.log(response.data)
 
         }catch(err){
-            alert("An error occured"+(err.response?err.response.data.message:err.message))
+            toast.error("An error occured"+(err.response.data.message))
             
 
         }

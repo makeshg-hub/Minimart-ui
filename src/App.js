@@ -6,11 +6,15 @@ import Forgot from './Component/forgotpage';
 import Login from './Component/login';
 import Register from './Component/register';
 import Change from './Component/changepassword';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
     <div style={{ height: "100vh" }}>
       <BrowserRouter>
+      <ToastContainer />
+
         <Routes>
           <Route index element={<Homepage />} />
           <Route path="/" element={<Homepage />} />

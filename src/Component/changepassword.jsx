@@ -2,12 +2,16 @@ import { useState } from 'react';
 import './changepassword.css';
 import { Button, TextField } from '@mui/material';
 import axios from 'axios';
+import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
+
 const Change = ()=>{
   const [user,setUser]=useState({
     token:"",
     password:"",
     confirmPassword:""
   })
+  const nav = useNavigate()
   const handleChangeToken=(e)=>{
     setUser((prevVal)=>({
       ...prevVal,
@@ -31,17 +35,21 @@ const Change = ()=>{
     if(user.password!==user.confirmPassword){
       alert("Password Do Not Match")
       return
+    }else if(user.password=="" || user.token==""|| user.confirmPassword==""){
+      toast.error("Please Fill all the field")
+      return
     }
     const data ={
       token:user.token,
-      password:user.password
+      newPassword:user.password
     }
     try{
-      const response=await axios.post("http://localhost:8083/api/patient//reset-password",data)
-      alert("Password Changed")
+      const response=await axios.post("http://localhost:8083/api/patient/reset-password",data)
+      toast.success("Password Changed")
+      nav("/homepage")
       console.log(response.data)
     }catch(err){
-      alert("An error occured"+(err.response?err.response.data.message:err.message))
+      toast.error("An error occured"+(err.response?err.response.data.message:err.message))
       
 
     }
