@@ -1,5 +1,51 @@
+import { useState } from 'react';
 import './changepassword.css';
+import { Button, TextField } from '@mui/material';
+import axios from 'axios';
 const Change = ()=>{
+  const [user,setUser]=useState({
+    token:"",
+    password:"",
+    confirmPassword:""
+  })
+  const handleChangeToken=(e)=>{
+    setUser((prevVal)=>({
+      ...prevVal,
+      token:e.target.value
+    }))
+  }
+  const handleChangePassword=(e)=>{
+    setUser((prevVal)=>({
+      ...prevVal,
+      password:e.target.value
+    }))
+  }
+  const handleChangeConfirmPassword=(e)=>{
+    setUser((prevVal)=>({
+      ...prevVal,
+      confirmPassword:e.target.value
+    }))
+  }
+  const handleSubmit= async(e)=>{
+    e.preventDefault()
+    if(user.password!==user.confirmPassword){
+      alert("Password Do Not Match")
+      return
+    }
+    const data ={
+      token:user.token,
+      password:user.password
+    }
+    try{
+      const response=await axios.post("http://localhost:8083/api/patient//reset-password",data)
+      alert("Password Changed")
+      console.log(response.data)
+    }catch(err){
+      alert("An error occured"+(err.response?err.response.data.message:err.message))
+      
+
+    }
+  }
     return(
         <div className="change-container">
       <div className="change-form">
@@ -8,18 +54,43 @@ const Change = ()=>{
 
         <form action="">
           <div className="change-group">
-            <label for="code">Verification code</label>
-            <input type="text" id="text" name="text" />
+            <label htmlFor="token">Verification code</label>
+            {/* <input type="text" id="text" name="text" /> */}
+            <TextField  
+              type="text"
+              id="text"
+              name="text"
+              value={user.token}
+              onChange={handleChangeToken}
+              required
+            />
           </div>
           <div className="change-group">
-            <label for="password">New Password</label>
-            <input type="password" id="password1" name="password" />
+            <label htmlFor="password">New Password</label>
+            {/* <input type="password" id="password1" name="password" /> */}
+            <TextField
+            type="password"
+            id="password"
+            name="password"
+            value={user.password}
+            onChange={handleChangePassword}
+            required
+            />
           </div>
           <div className="change-group">
-            <label for="password">Confirm Password</label>
-            <input type="password" id="password2" name="password" />
+            <label htmlFor="password">Confirm Password</label>
+            {/* <input type="password" id="password2" name="password" /> */}
+            <TextField
+            type="password"
+            id="confirmPassword"
+            name="confirmPassword"
+            value={user.confirmPassword}
+            onChange={handleChangeConfirmPassword}
+            required
+            />
+
           </div>
-            <button type="submit">Submit</button>
+            <Button onClick={handleSubmit}>Submit</Button>
             <div className="links">
               <a href="#">Back</a>
             </div>
