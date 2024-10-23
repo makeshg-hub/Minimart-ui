@@ -40,7 +40,7 @@ const Login = () => {
     };
     try {
       const respone = await axios.post(
-        "http://localhost:8083/api/patient/login",
+        "http://localhost:8083/api/cart/login",
         data
       );
       toast.success("Login Successful");

@@ -44,7 +44,7 @@ const Change = ()=>{
       newPassword:user.password
     }
     try{
-      const response=await axios.post("http://localhost:8083/api/patient/reset-password",data)
+      const response=await axios.post("http://localhost:8083/api/cart/reset-password",data)
       toast.success("Password Changed")
       nav("/homepage")
       console.log(response.data)

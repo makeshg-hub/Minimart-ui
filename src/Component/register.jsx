@@ -64,7 +64,7 @@ const Register = () => {
     };
     try {
       const response = await axios.post(
-        "http://localhost:8083/api/patient/sign-up",
+        "http://localhost:8083/api/cart/sign-up",
         data
       );
       toast.success("Registration successful!");
